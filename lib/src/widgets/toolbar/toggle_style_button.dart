@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../models/documents/attribute.dart';
 import '../../models/documents/style.dart';
@@ -9,7 +10,8 @@ import '../toolbar.dart';
 typedef ToggleStyleButtonBuilder = Widget Function(
   BuildContext context,
   Attribute attribute,
-  IconData icon,
+  IconData? icon,
+  String? svgIcon,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -29,11 +31,26 @@ class ToggleStyleButton extends StatefulWidget {
     this.iconTheme,
     this.afterButtonPressed,
     Key? key,
-  }) : super(key: key);
+  })  : svgIcon = null,
+        super(key: key);
+
+  const ToggleStyleButton.custom({
+    required this.attribute,
+    required this.svgIcon,
+    required this.controller,
+    this.iconSize = kDefaultIconSize,
+    this.fillColor,
+    this.childBuilder = defaultToggleStyleButtonBuilder,
+    this.iconTheme,
+    this.afterButtonPressed,
+    Key? key,
+  })  : icon = null,
+        super(key: key);
 
   final Attribute attribute;
 
-  final IconData icon;
+  final IconData? icon;
+  final String? svgIcon;
   final double iconSize;
 
   final Color? fillColor;
@@ -69,6 +86,7 @@ class _ToggleStyleButtonState extends State<ToggleStyleButton> {
       context,
       widget.attribute,
       widget.icon,
+      widget.svgIcon,
       widget.fillColor,
       _isToggled,
       _toggleAttribute,
@@ -119,7 +137,8 @@ class _ToggleStyleButtonState extends State<ToggleStyleButton> {
 Widget defaultToggleStyleButtonBuilder(
   BuildContext context,
   Attribute attribute,
-  IconData icon,
+  IconData? icon,
+  String? svgIcon,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -148,7 +167,9 @@ Widget defaultToggleStyleButtonBuilder(
     highlightElevation: 0,
     hoverElevation: 0,
     size: iconSize * kIconButtonFactor,
-    icon: Icon(icon, size: iconSize, color: iconColor),
+    icon: svgIcon != null
+        ? SvgPicture.asset(svgIcon, width: 14, color: iconColor)
+        : Icon(icon, size: iconSize, color: iconColor),
     fillColor: fill,
     onPressed: onPressed,
     afterPressed: afterPressed,

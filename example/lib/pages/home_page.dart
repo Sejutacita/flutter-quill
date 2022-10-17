@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:filesystem_picker/filesystem_picker.dart';
@@ -158,6 +159,11 @@ class _HomePageState extends State<HomePage> {
     }
     var toolbar = QuillToolbar.basic(
       controller: _controller!,
+      svgBoldIcon: 'assets/ic_bold.svg',
+      svgItalicIcon: 'assets/ic_bold.svg',
+      svgListNumberIcon: 'assets/ic_bold.svg',
+      svgListBulletIcon: 'assets/ic_bold.svg',
+      svgLinkIcon: 'assets/ic_bold.svg',
       embedButtons: FlutterQuillEmbeds.buttons(
         // provide a callback to enable picking images from device.
         // if omit, "image" button only allows adding images from url.
@@ -175,6 +181,11 @@ class _HomePageState extends State<HomePage> {
     if (kIsWeb) {
       toolbar = QuillToolbar.basic(
         controller: _controller!,
+        svgBoldIcon: 'assets/ic_bold.svg',
+        svgItalicIcon: 'assets/ic_bold.svg',
+        svgListNumberIcon: 'assets/ic_bold.svg',
+        svgListBulletIcon: 'assets/ic_bold.svg',
+        svgLinkIcon: 'assets/ic_bold.svg',
         embedButtons: FlutterQuillEmbeds.buttons(
           onImagePickCallback: _onImagePickCallback,
           webImagePickImpl: _webImagePickImpl,
@@ -186,6 +197,11 @@ class _HomePageState extends State<HomePage> {
     if (_isDesktop()) {
       toolbar = QuillToolbar.basic(
         controller: _controller!,
+        svgBoldIcon: 'assets/ic_bold.svg',
+        svgItalicIcon: 'assets/ic_bold.svg',
+        svgListNumberIcon: 'assets/ic_bold.svg',
+        svgListBulletIcon: 'assets/ic_bold.svg',
+        svgLinkIcon: 'assets/ic_bold.svg',
         embedButtons: FlutterQuillEmbeds.buttons(
           onImagePickCallback: _onImagePickCallback,
           filePickImpl: openFileSystemPickerForDesktop,
@@ -207,14 +223,7 @@ class _HomePageState extends State<HomePage> {
               child: quillEditor,
             ),
           ),
-          kIsWeb
-              ? Expanded(
-                  child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                  child: toolbar,
-                ))
-              : Container(child: toolbar)
+          kIsWeb ? Expanded(child: toolbar) : Container(child: toolbar)
         ],
       ),
     );

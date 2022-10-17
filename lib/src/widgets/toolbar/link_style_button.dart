@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../models/documents/attribute.dart';
@@ -19,10 +20,23 @@ class LinkStyleButton extends StatefulWidget {
     this.dialogTheme,
     this.afterButtonPressed,
     Key? key,
+  })  : svgIcon = null,
+        super(key: key);
+
+  const LinkStyleButton.custom({
+    required this.controller,
+    required this.svgIcon,
+    this.iconSize = kDefaultIconSize,
+    this.icon,
+    this.iconTheme,
+    this.dialogTheme,
+    this.afterButtonPressed,
+    Key? key,
   }) : super(key: key);
 
   final QuillController controller;
   final IconData? icon;
+  final String? svgIcon;
   final double iconSize;
   final QuillIconTheme? iconTheme;
   final QuillDialogTheme? dialogTheme;
@@ -67,14 +81,25 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
       highlightElevation: 0,
       hoverElevation: 0,
       size: widget.iconSize * kIconButtonFactor,
-      icon: Icon(
-        widget.icon ?? Icons.link,
-        size: widget.iconSize,
-        color: isToggled
-            ? (widget.iconTheme?.iconSelectedColor ??
-                theme.primaryIconTheme.color)
-            : (widget.iconTheme?.iconUnselectedColor ?? theme.iconTheme.color),
-      ),
+      icon: widget.svgIcon != null
+          ? SvgPicture.asset(
+              widget.svgIcon!,
+              width: widget.iconSize,
+              color: isToggled
+                  ? (widget.iconTheme?.iconSelectedColor ??
+                      theme.primaryIconTheme.color)
+                  : (widget.iconTheme?.iconUnselectedColor ??
+                      theme.iconTheme.color),
+            )
+          : Icon(
+              widget.icon ?? Icons.link,
+              size: widget.iconSize,
+              color: isToggled
+                  ? (widget.iconTheme?.iconSelectedColor ??
+                      theme.primaryIconTheme.color)
+                  : (widget.iconTheme?.iconUnselectedColor ??
+                      theme.iconTheme.color),
+            ),
       fillColor: isToggled
           ? (widget.iconTheme?.iconSelectedFillColor ??
               theme.toggleableActiveColor)
