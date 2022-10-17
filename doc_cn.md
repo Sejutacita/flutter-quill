@@ -319,7 +319,7 @@ QuillEditor(locale: Locale('fr'), ...)
 * `Locale('sr')`
 
 #### 贡献翻译
-翻译文件位于 [toolbar.i18n.dart](lib/src/translations/toolbar.i18n.dart)。 随意贡献您自己的翻译，只需复制英文翻译映射并将值替换为您的翻译。 然后打开一个拉取请求，这样每个人都可以从您的翻译中受益！
+翻译文件位于 [toolbar.dart](lib/src/translations/toolbar.dart)。 随意贡献您自己的翻译，只需复制英文翻译映射并将值替换为您的翻译。 然后打开一个拉取请求，这样每个人都可以从您的翻译中受益！
 
 ---
 

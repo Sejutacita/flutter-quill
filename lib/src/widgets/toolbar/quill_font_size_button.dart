@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../models/documents/attribute.dart';
 import '../../models/documents/style.dart';
 import '../../models/themes/quill_icon_theme.dart';
-import '../../translations/toolbar.i18n.dart';
 import '../../utils/font.dart';
 import '../controller.dart';
 
@@ -47,7 +46,7 @@ class _QuillFontSizeButtonState extends State<QuillFontSizeButton> {
   @override
   void initState() {
     super.initState();
-    _currentValue = _defaultDisplayText = 'Size'.i18n;
+    _currentValue = _defaultDisplayText = 'Size';
     widget.controller.addListener(_didChangeEditingValue);
   }
 

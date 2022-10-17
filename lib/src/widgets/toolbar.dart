@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:i18n_extension/i18n_widget.dart';
 
 import '../models/documents/attribute.dart';
 import '../models/themes/quill_custom_button.dart';
 import '../models/themes/quill_dialog_theme.dart';
 import '../models/themes/quill_icon_theme.dart';
-import '../translations/toolbar.i18n.dart';
 import '../utils/font.dart';
 import 'controller.dart';
 import 'embeds.dart';
@@ -144,10 +142,10 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
     // //default font size values
     // final fontSizes = fontSizeValues ??
     //     {
-    //       'Small'.i18n: 'small',
-    //       'Large'.i18n: 'large',
-    //       'Huge'.i18n: 'huge',
-    //       'Clear'.i18n: '0'
+    //       'Small': 'small',
+    //       'Large': 'large',
+    //       'Huge': 'huge',
+    //       'Clear': '0'
     //     };
 
     // //default font family values
@@ -542,18 +540,15 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return I18n(
-      initialLocale: locale,
-      child: multiRowsDisplay
-          ? Wrap(
-              alignment: toolbarIconAlignment,
-              runSpacing: 4,
-              spacing: toolbarSectionSpacing,
-              children: children,
-            )
-          : Row(
-              children: children,
-            ),
-    );
+    return multiRowsDisplay
+        ? Wrap(
+            alignment: toolbarIconAlignment,
+            runSpacing: 4,
+            spacing: toolbarSectionSpacing,
+            children: children,
+          )
+        : Row(
+            children: children,
+          );
   }
 }

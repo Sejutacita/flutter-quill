@@ -71,7 +71,7 @@ class ImageEmbedBuilder implements EmbedBuilder {
                   final resizeOption = _SimpleDialogItem(
                     icon: Icons.settings_outlined,
                     color: Colors.lightBlueAccent,
-                    text: 'Resize'.i18n,
+                    text: 'Resize',
                     onPressed: () {
                       Navigator.pop(context);
                       showCupertinoModalPopup<void>(
@@ -99,7 +99,7 @@ class ImageEmbedBuilder implements EmbedBuilder {
                   final copyOption = _SimpleDialogItem(
                     icon: Icons.copy_all_outlined,
                     color: Colors.cyanAccent,
-                    text: 'Copy'.i18n,
+                    text: 'Copy',
                     onPressed: () {
                       final imageNode =
                           getEmbedNode(controller, controller.selection.start)
@@ -113,7 +113,7 @@ class ImageEmbedBuilder implements EmbedBuilder {
                   final removeOption = _SimpleDialogItem(
                     icon: Icons.delete_forever_outlined,
                     color: Colors.red.shade200,
-                    text: 'Remove'.i18n,
+                    text: 'Remove',
                     onPressed: () {
                       final offset =
                           getEmbedNode(controller, controller.selection.start)
@@ -218,12 +218,12 @@ Widget _menuOptionsForReadonlyImage(
               final saveOption = _SimpleDialogItem(
                 icon: Icons.save,
                 color: Colors.greenAccent,
-                text: 'Save'.i18n,
+                text: 'Save',
                 onPressed: () {
                   imageUrl = appendFileExtensionToImageUrl(imageUrl);
                   GallerySaver.saveImage(imageUrl).then((_) {
                     ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text('Saved'.i18n)));
+                        .showSnackBar(SnackBar(content: Text('Saved')));
                     Navigator.pop(context);
                   });
                 },
@@ -231,7 +231,7 @@ Widget _menuOptionsForReadonlyImage(
               final zoomOption = _SimpleDialogItem(
                 icon: Icons.zoom_in,
                 color: Colors.cyanAccent,
-                text: 'Zoom'.i18n,
+                text: 'Zoom',
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,

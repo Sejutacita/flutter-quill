@@ -8,7 +8,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:i18n_extension/i18n_widget.dart';
 import 'package:tuple/tuple.dart';
 
 import '../models/documents/document.dart';
@@ -498,16 +497,13 @@ class QuillEditorState extends State<QuillEditor>
       onImagePaste: widget.onImagePaste,
     );
 
-    final editor = I18n(
-      initialLocale: widget.locale,
-      child: selectionEnabled
-          ? _selectionGestureDetectorBuilder.build(
-              behavior: HitTestBehavior.translucent,
-              child: child,
-            )
-          : child,
-    );
-
+    final editor = selectionEnabled
+        ? _selectionGestureDetectorBuilder.build(
+            behavior: HitTestBehavior.translucent,
+            child: child,
+          )
+        : child;
+        
     if (kIsWeb) {
       // Intercept RawKeyEvent on Web to prevent it from propagating to parents
       // that might interfere with the editor key behavior, such as

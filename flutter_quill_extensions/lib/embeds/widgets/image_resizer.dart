@@ -76,7 +76,7 @@ class _ImageResizerState extends State<ImageResizer> {
             value: value,
             max: max,
             divisions: 1000,
-            label: label.i18n,
+            label: label,
             onChanged: (val) {
               setState(() {
                 onChanged(val);
