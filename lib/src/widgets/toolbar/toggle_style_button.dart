@@ -169,6 +169,7 @@ Widget defaultToggleStyleButtonBuilder(
             iconAsset,
             width: 14,
             color: iconColor,
+            package: 'resources',
           )
         : Icon(icon, size: iconSize, color: iconColor),
     fillColor: fill,
