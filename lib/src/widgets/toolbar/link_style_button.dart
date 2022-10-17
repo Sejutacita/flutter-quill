@@ -86,8 +86,8 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
               color: isToggled
                   ? (widget.iconTheme?.iconSelectedColor ??
                       theme.primaryIconTheme.color)
-                  : (widget.iconTheme?.iconUnselectedColor ??
-                      theme.iconTheme.color),
+                  : Colors.transparent,
+              package: 'resources',
             )
           : Icon(
               widget.icon ?? Icons.link,
