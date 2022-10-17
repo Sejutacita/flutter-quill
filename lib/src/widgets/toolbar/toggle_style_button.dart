@@ -167,7 +167,13 @@ Widget defaultToggleStyleButtonBuilder(
     hoverElevation: 0,
     size: iconSize * kIconButtonFactor,
     icon: svgIcon != null
-        ? Image.asset(svgIcon, width: 14, color: iconColor)
+        ? Image.asset(
+            svgIcon,
+            width: 14,
+            color: iconColor,
+            // Hardcoded
+            package: 'resources',
+          )
         : Icon(icon, size: iconSize, color: iconColor),
     fillColor: fill,
     onPressed: onPressed,
