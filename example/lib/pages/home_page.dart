@@ -172,6 +172,50 @@ class _HomePageState extends State<HomePage> {
       ),
       showAlignmentButtons: true,
       afterButtonPressed: _focusNode.requestFocus,
+      toolbarWidget: Row(
+        children: [
+          ToggleStyleButton.custom(
+            attribute: Attribute.bold,
+            iconAsset: 'assets/ic_bold.png',
+            controller: _controller!,
+          ),
+          const SizedBox(width: 8),
+          ToggleStyleButton.custom(
+            attribute: Attribute.italic,
+            iconAsset: 'assets/ic_italic.png',
+            controller: _controller!,
+          ),
+          const SizedBox(width: 8),
+          Container(
+            color: const Color(0xFFD0D1D3),
+            height: 16,
+            width: 1,
+          ),
+          const SizedBox(width: 8),
+          ToggleStyleButton.custom(
+            attribute: Attribute.ol,
+            iconAsset: 'assets/ic_list_ordered.png',
+            controller: _controller!,
+          ),
+          const SizedBox(width: 8),
+          ToggleStyleButton.custom(
+            attribute: Attribute.ul,
+            iconAsset: 'assets/ic_list_unordered.png',
+            controller: _controller!,
+          ),
+          const SizedBox(width: 8),
+          Container(
+            color: const Color(0xFFD0D1D3),
+            height: 16,
+            width: 1,
+          ),
+          const SizedBox(width: 8),
+          LinkStyleButton.custom(
+            controller: _controller!,
+            iconAsset: 'assets/ic_link.png',
+          ),
+        ],
+      ),
     );
     if (kIsWeb) {
       toolbar = QuillToolbar.basic(
@@ -182,6 +226,50 @@ class _HomePageState extends State<HomePage> {
         ),
         showAlignmentButtons: true,
         afterButtonPressed: _focusNode.requestFocus,
+        toolbarWidget: Row(
+          children: [
+            ToggleStyleButton.custom(
+              attribute: Attribute.bold,
+              iconAsset: 'assets/ic_bold.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.italic,
+              iconAsset: 'assets/ic_italic.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            Container(
+              color: const Color(0xFFD0D1D3),
+              height: 16,
+              width: 1,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.ol,
+              iconAsset: 'assets/ic_list_ordered.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.ul,
+              iconAsset: 'assets/ic_list_unordered.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            Container(
+              color: const Color(0xFFD0D1D3),
+              height: 16,
+              width: 1,
+            ),
+            const SizedBox(width: 8),
+            LinkStyleButton.custom(
+              controller: _controller!,
+              iconAsset: 'assets/ic_link.png',
+            ),
+          ],
+        ),
       );
     }
     if (_isDesktop()) {
@@ -193,6 +281,50 @@ class _HomePageState extends State<HomePage> {
         ),
         showAlignmentButtons: true,
         afterButtonPressed: _focusNode.requestFocus,
+        toolbarWidget: Row(
+          children: [
+            ToggleStyleButton.custom(
+              attribute: Attribute.bold,
+              iconAsset: 'assets/ic_bold.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.italic,
+              iconAsset: 'assets/ic_italic.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            Container(
+              color: const Color(0xFFD0D1D3),
+              height: 16,
+              width: 1,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.ol,
+              iconAsset: 'assets/ic_list_ordered.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            ToggleStyleButton.custom(
+              attribute: Attribute.ul,
+              iconAsset: 'assets/ic_list_unordered.png',
+              controller: _controller!,
+            ),
+            const SizedBox(width: 8),
+            Container(
+              color: const Color(0xFFD0D1D3),
+              height: 16,
+              width: 1,
+            ),
+            const SizedBox(width: 8),
+            LinkStyleButton.custom(
+              controller: _controller!,
+              iconAsset: 'assets/ic_link.png',
+            ),
+          ],
+        ),
       );
     }
 
@@ -398,7 +530,8 @@ class _HomePageState extends State<HomePage> {
     final length = controller.selection.extentOffset - index;
 
     if (isEditing) {
-      final offset = getEmbedNode(controller, controller.selection.start).item1;
+      final offset =
+          getEmbedNode(_controller!, controller.selection.start).item1;
       controller.replaceText(
           offset, 1, block, TextSelection.collapsed(offset: offset));
     } else {
@@ -418,7 +551,7 @@ class NotesEmbedBuilder implements EmbedBuilder {
   @override
   Widget build(
     BuildContext context,
-    QuillController controller,
+    QuillController _controller,
     Embed node,
     bool readOnly,
   ) {
