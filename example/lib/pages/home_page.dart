@@ -159,11 +159,6 @@ class _HomePageState extends State<HomePage> {
     }
     var toolbar = QuillToolbar.basic(
       controller: _controller!,
-      iconBold: 'assets/ic_bold.png',
-      iconItalic: 'assets/ic_italic.png',
-      iconListNumber: 'assets/ic_ordered_list.png',
-      iconListBullet: 'assets/ic_unordered_list.png',
-      iconLink: 'assets/ic_link.png',
       embedButtons: FlutterQuillEmbeds.buttons(
         // provide a callback to enable picking images from device.
         // if omit, "image" button only allows adding images from url.
@@ -181,11 +176,6 @@ class _HomePageState extends State<HomePage> {
     if (kIsWeb) {
       toolbar = QuillToolbar.basic(
         controller: _controller!,
-        iconBold: 'assets/ic_bold.png',
-        iconItalic: 'assets/ic_italic.png',
-        iconListNumber: 'assets/ic_ordered_list.png',
-        iconListBullet: 'assets/ic_unordered_list.png',
-        iconLink: 'assets/ic_link.png',
         embedButtons: FlutterQuillEmbeds.buttons(
           onImagePickCallback: _onImagePickCallback,
           webImagePickImpl: _webImagePickImpl,
@@ -197,11 +187,6 @@ class _HomePageState extends State<HomePage> {
     if (_isDesktop()) {
       toolbar = QuillToolbar.basic(
         controller: _controller!,
-        iconBold: 'assets/ic_bold.png',
-        iconItalic: 'assets/ic_italic.png',
-        iconListNumber: 'assets/ic_ordered_list.png',
-        iconListBullet: 'assets/ic_unordered_list.png',
-        iconLink: 'assets/ic_link.png',
         embedButtons: FlutterQuillEmbeds.buttons(
           onImagePickCallback: _onImagePickCallback,
           filePickImpl: openFileSystemPickerForDesktop,

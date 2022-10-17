@@ -10,7 +10,7 @@ typedef ToggleStyleButtonBuilder = Widget Function(
   BuildContext context,
   Attribute attribute,
   IconData? icon,
-  String? svgIcon,
+  String? iconAsset,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -30,12 +30,12 @@ class ToggleStyleButton extends StatefulWidget {
     this.iconTheme,
     this.afterButtonPressed,
     Key? key,
-  })  : svgIcon = null,
+  })  : iconAsset = null,
         super(key: key);
 
   const ToggleStyleButton.custom({
     required this.attribute,
-    required this.svgIcon,
+    required this.iconAsset,
     required this.controller,
     this.iconSize = kDefaultIconSize,
     this.fillColor,
@@ -49,7 +49,7 @@ class ToggleStyleButton extends StatefulWidget {
   final Attribute attribute;
 
   final IconData? icon;
-  final String? svgIcon;
+  final String? iconAsset;
   final double iconSize;
 
   final Color? fillColor;
@@ -85,7 +85,7 @@ class _ToggleStyleButtonState extends State<ToggleStyleButton> {
       context,
       widget.attribute,
       widget.icon,
-      widget.svgIcon,
+      widget.iconAsset,
       widget.fillColor,
       _isToggled,
       _toggleAttribute,
@@ -137,7 +137,7 @@ Widget defaultToggleStyleButtonBuilder(
   BuildContext context,
   Attribute attribute,
   IconData? icon,
-  String? svgIcon,
+  String? iconAsset,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -158,21 +158,17 @@ Widget defaultToggleStyleButtonBuilder(
       ? isToggled == true
           ? (iconTheme?.iconSelectedFillColor ??
               theme.toggleableActiveColor) //Selected icon fill color
-          : (iconTheme?.iconUnselectedFillColor ??
-              theme.canvasColor) //Unselected icon fill color :
-      : (iconTheme?.disabledIconFillColor ??
-          (fillColor ?? theme.canvasColor)); //Disabled icon fill color
+          : Colors.transparent //Unselected icon fill color :
+      : Colors.transparent; //Disabled icon fill color
   return QuillIconButton(
     highlightElevation: 0,
     hoverElevation: 0,
     size: iconSize * kIconButtonFactor,
-    icon: svgIcon != null
+    icon: iconAsset != null
         ? Image.asset(
-            svgIcon,
+            iconAsset,
             width: 14,
             color: iconColor,
-            // Hardcoded
-            package: 'resources',
           )
         : Icon(icon, size: iconSize, color: iconColor),
     fillColor: fill,

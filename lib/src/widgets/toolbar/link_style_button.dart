@@ -18,12 +18,12 @@ class LinkStyleButton extends StatefulWidget {
     this.dialogTheme,
     this.afterButtonPressed,
     Key? key,
-  })  : svgIcon = null,
+  })  : iconAsset = null,
         super(key: key);
 
   const LinkStyleButton.custom({
     required this.controller,
-    required this.svgIcon,
+    required this.iconAsset,
     this.iconSize = kDefaultIconSize,
     this.icon,
     this.iconTheme,
@@ -34,7 +34,7 @@ class LinkStyleButton extends StatefulWidget {
 
   final QuillController controller;
   final IconData? icon;
-  final String? svgIcon;
+  final String? iconAsset;
   final double iconSize;
   final QuillIconTheme? iconTheme;
   final QuillDialogTheme? dialogTheme;
@@ -79,9 +79,9 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
       highlightElevation: 0,
       hoverElevation: 0,
       size: widget.iconSize * kIconButtonFactor,
-      icon: widget.svgIcon != null
+      icon: widget.iconAsset != null
           ? Image.asset(
-              widget.svgIcon!,
+              widget.iconAsset!,
               width: widget.iconSize,
               color: isToggled
                   ? (widget.iconTheme?.iconSelectedColor ??
