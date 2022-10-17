@@ -95,8 +95,7 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
               color: isToggled
                   ? (widget.iconTheme?.iconSelectedColor ??
                       theme.primaryIconTheme.color)
-                  : (widget.iconTheme?.iconUnselectedColor ??
-                      theme.iconTheme.color),
+                  : Colors.transparent,
             ),
       fillColor: isToggled
           ? (widget.iconTheme?.iconSelectedFillColor ??

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/extensions.dart' as base;
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
-import 'package:flutter_quill/translations.dart';
 import 'package:gallery_saver/gallery_saver.dart';
 import 'package:math_keyboard/math_keyboard.dart';
 import 'package:tuple/tuple.dart';

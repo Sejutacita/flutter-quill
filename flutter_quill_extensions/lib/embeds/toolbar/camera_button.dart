@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
-import 'package:flutter_quill/translations.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../embed_types.dart';
