@@ -82,7 +82,7 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
       hoverElevation: 0,
       size: widget.iconSize * kIconButtonFactor,
       icon: widget.svgIcon != null
-          ? SvgPicture.asset(
+          ? Image.asset(
               widget.svgIcon!,
               width: widget.iconSize,
               color: isToggled

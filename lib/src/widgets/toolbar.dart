@@ -58,11 +58,11 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
 
   factory QuillToolbar.basic({
     required QuillController controller,
-    required String svgBoldIcon,
-    required String svgItalicIcon,
-    required String svgListNumberIcon,
-    required String svgListBulletIcon,
-    required String svgLinkIcon,
+    required String iconBold,
+    required String iconItalic,
+    required String iconListNumber,
+    required String iconListBullet,
+    required String iconLink,
     double toolbarIconSize = kDefaultIconSize,
     double toolbarSectionSpacing = 4,
     WrapAlignment toolbarIconAlignment = WrapAlignment.center,
@@ -176,7 +176,7 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
       children: [
         ToggleStyleButton.custom(
           attribute: Attribute.bold,
-          svgIcon: svgBoldIcon,
+          svgIcon: iconBold,
           iconSize: toolbarIconSize,
           controller: controller,
           iconTheme: iconTheme,
@@ -185,7 +185,7 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 8),
         ToggleStyleButton.custom(
           attribute: Attribute.italic,
-          svgIcon: svgItalicIcon,
+          svgIcon: iconItalic,
           iconSize: toolbarIconSize,
           controller: controller,
           iconTheme: iconTheme,
@@ -200,7 +200,7 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 8),
         ToggleStyleButton.custom(
           attribute: Attribute.ol,
-          svgIcon: svgListNumberIcon,
+          svgIcon: iconListNumber,
           controller: controller,
           iconSize: toolbarIconSize,
           iconTheme: iconTheme,
@@ -209,7 +209,7 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 8),
         ToggleStyleButton.custom(
           attribute: Attribute.ul,
-          svgIcon: svgListBulletIcon,
+          svgIcon: iconListBullet,
           controller: controller,
           iconSize: toolbarIconSize,
           iconTheme: iconTheme,
@@ -224,7 +224,7 @@ class QuillToolbar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 8),
         LinkStyleButton.custom(
           controller: controller,
-          svgIcon: svgLinkIcon,
+          svgIcon: iconLink,
           iconSize: toolbarIconSize,
           iconTheme: iconTheme,
           dialogTheme: dialogTheme,

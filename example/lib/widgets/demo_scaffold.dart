@@ -93,21 +93,21 @@ class _DemoScaffoldState extends State<DemoScaffold> {
     final actions = widget.actions ?? <Widget>[];
     var toolbar = QuillToolbar.basic(
       controller: _controller!,
-      svgBoldIcon: 'assets/ic_bold.svg',
-      svgItalicIcon: 'assets/ic_italic.svg',
-      svgListNumberIcon: 'assets/ic_list_ordered.svg',
-      svgListBulletIcon: 'assets/ic_list_unordered.svg',
-      svgLinkIcon: 'assets/ic_link.svg',
+      iconBold: 'assets/ic_bold.png',
+      iconItalic: 'assets/ic_italic.svg',
+      iconListNumber: 'assets/ic_list_ordered.svg',
+      iconListBullet: 'assets/ic_list_unordered.svg',
+      iconLink: 'assets/ic_link.svg',
       embedButtons: FlutterQuillEmbeds.buttons(),
     );
     if (_isDesktop()) {
       toolbar = QuillToolbar.basic(
         controller: _controller!,
-        svgBoldIcon: 'assets/ic_bold.svg',
-        svgItalicIcon: 'assets/ic_italic.svg',
-        svgListNumberIcon: 'assets/ic_list_ordered.svg',
-        svgListBulletIcon: 'assets/ic_list_unordered.svg',
-        svgLinkIcon: 'assets/ic_link.svg',
+        iconBold: 'assets/ic_bold.png',
+        iconItalic: 'assets/ic_italic.svg',
+        iconListNumber: 'assets/ic_list_ordered.svg',
+        iconListBullet: 'assets/ic_list_unordered.svg',
+        iconLink: 'assets/ic_link.svg',
         embedButtons: FlutterQuillEmbeds.buttons(
             filePickImpl: openFileSystemPickerForDesktop),
       );
