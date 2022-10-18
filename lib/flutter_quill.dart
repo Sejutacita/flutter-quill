@@ -1,5 +1,7 @@
 library flutter_quill;
 
+export 'delta_markdown/delta_markdown.dart';
+export 'quill_converter/quill_converter.dart';
 export 'src/models/documents/attribute.dart';
 export 'src/models/documents/document.dart';
 export 'src/models/documents/nodes/embeddable.dart';
