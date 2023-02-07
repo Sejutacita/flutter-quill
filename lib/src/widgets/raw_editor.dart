@@ -1227,6 +1227,17 @@ class RawEditorState extends EditorState
     // this is needed for Scribble (Stylus input) in Apple platforms
     // and this package does not implement this feature
   }
+
+  @override
+  void didChangeInputControl(
+      TextInputControl? oldControl, TextInputControl? newControl) {
+    // TODO: implement didChangeInputControl
+  }
+
+  @override
+  void performSelector(String selectorName) {
+    // TODO: implement performSelector
+  }
 }
 
 class _Editor extends MultiChildRenderObjectWidget {
