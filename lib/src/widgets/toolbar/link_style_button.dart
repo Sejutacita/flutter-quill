@@ -5,7 +5,6 @@ import '../../models/documents/attribute.dart';
 import '../../models/rules/insert.dart';
 import '../../models/themes/quill_dialog_theme.dart';
 import '../../models/themes/quill_icon_theme.dart';
-import '../../translations/toolbar.i18n.dart';
 import '../controller.dart';
 import '../link.dart';
 import '../toolbar.dart';
@@ -19,10 +18,23 @@ class LinkStyleButton extends StatefulWidget {
     this.dialogTheme,
     this.afterButtonPressed,
     Key? key,
+  })  : iconAsset = null,
+        super(key: key);
+
+  const LinkStyleButton.custom({
+    required this.controller,
+    required this.iconAsset,
+    this.iconSize = kDefaultIconSize,
+    this.icon,
+    this.iconTheme,
+    this.dialogTheme,
+    this.afterButtonPressed,
+    Key? key,
   }) : super(key: key);
 
   final QuillController controller;
   final IconData? icon;
+  final String? iconAsset;
   final double iconSize;
   final QuillIconTheme? iconTheme;
   final QuillDialogTheme? dialogTheme;
@@ -67,18 +79,28 @@ class _LinkStyleButtonState extends State<LinkStyleButton> {
       highlightElevation: 0,
       hoverElevation: 0,
       size: widget.iconSize * kIconButtonFactor,
-      icon: Icon(
-        widget.icon ?? Icons.link,
-        size: widget.iconSize,
-        color: isToggled
-            ? (widget.iconTheme?.iconSelectedColor ??
-                theme.primaryIconTheme.color)
-            : (widget.iconTheme?.iconUnselectedColor ?? theme.iconTheme.color),
-      ),
+      icon: widget.iconAsset != null
+          ? Image.asset(
+              widget.iconAsset!,
+              width: widget.iconSize,
+              color: isToggled
+                  ? (widget.iconTheme?.iconSelectedColor ??
+                      theme.primaryIconTheme.color)
+                  : Colors.transparent,
+              package: 'resources',
+            )
+          : Icon(
+              widget.icon ?? Icons.link,
+              size: widget.iconSize,
+              color: isToggled
+                  ? (widget.iconTheme?.iconSelectedColor ??
+                      theme.primaryIconTheme.color)
+                  : Colors.transparent,
+            ),
       fillColor: isToggled
           ? (widget.iconTheme?.iconSelectedFillColor ??
               Theme.of(context).primaryColor)
-          : (widget.iconTheme?.iconUnselectedFillColor ?? theme.canvasColor),
+          : Colors.transparent,
       borderRadius: widget.iconTheme?.borderRadius ?? 2,
       onPressed: pressedHandler,
       afterPressed: widget.afterButtonPressed,
@@ -182,7 +204,7 @@ class _LinkDialogState extends State<_LinkDialog> {
             keyboardType: TextInputType.multiline,
             style: widget.dialogTheme?.inputTextStyle,
             decoration: InputDecoration(
-                labelText: 'Text'.i18n,
+                labelText: 'Text',
                 labelStyle: widget.dialogTheme?.labelTextStyle,
                 floatingLabelStyle: widget.dialogTheme?.labelTextStyle),
             autofocus: true,
@@ -194,7 +216,7 @@ class _LinkDialogState extends State<_LinkDialog> {
             keyboardType: TextInputType.multiline,
             style: widget.dialogTheme?.inputTextStyle,
             decoration: InputDecoration(
-                labelText: 'Link'.i18n,
+                labelText: 'Link',
                 labelStyle: widget.dialogTheme?.labelTextStyle,
                 floatingLabelStyle: widget.dialogTheme?.labelTextStyle),
             autofocus: true,
@@ -207,7 +229,7 @@ class _LinkDialogState extends State<_LinkDialog> {
         TextButton(
           onPressed: _canPress() ? _applyLink : null,
           child: Text(
-            'Ok'.i18n,
+            'Ok',
             style: widget.dialogTheme?.labelTextStyle,
           ),
         ),
