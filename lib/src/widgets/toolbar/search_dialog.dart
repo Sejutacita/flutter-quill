@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../translations.dart';
 import '../../models/documents/document.dart';
 import '../../models/themes/quill_dialog_theme.dart';
 import '../controller.dart';
@@ -38,9 +37,9 @@ class _SearchDialogState extends State<SearchDialog> {
     return StatefulBuilder(builder: (context, setState) {
       var label = '';
       if (_offsets != null) {
-        label = '${_offsets!.length} ${'matches'.i18n}';
+        label = '${_offsets!.length} ${'matches'}';
         if (_offsets!.isNotEmpty) {
-          label += ', ${'showing match'.i18n} ${_index + 1}';
+          label += ', ${'showing match'} ${_index + 1}';
         }
       }
       return AlertDialog(
@@ -53,7 +52,7 @@ class _SearchDialogState extends State<SearchDialog> {
                 keyboardType: TextInputType.multiline,
                 style: widget.dialogTheme?.inputTextStyle,
                 decoration: InputDecoration(
-                    labelText: 'Search'.i18n,
+                    labelText: 'Search',
                     labelStyle: widget.dialogTheme?.labelTextStyle,
                     floatingLabelStyle: widget.dialogTheme?.labelTextStyle),
                 autofocus: true,
@@ -78,7 +77,7 @@ class _SearchDialogState extends State<SearchDialog> {
                 _moveToPosition();
               },
               child: Text(
-                'Prev'.i18n,
+                'Prev',
                 style: widget.dialogTheme?.labelTextStyle,
               ),
             ),
@@ -93,7 +92,7 @@ class _SearchDialogState extends State<SearchDialog> {
                 _moveToPosition();
               },
               child: Text(
-                'Next'.i18n,
+                'Next',
                 style: widget.dialogTheme?.labelTextStyle,
               ),
             ),
@@ -109,7 +108,7 @@ class _SearchDialogState extends State<SearchDialog> {
                 }
               },
               child: Text(
-                'Ok'.i18n,
+                'Ok',
                 style: widget.dialogTheme?.labelTextStyle,
               ),
             ),

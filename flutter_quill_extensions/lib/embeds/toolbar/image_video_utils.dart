@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/extensions.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
-import 'package:flutter_quill/translations.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../embed_types.dart';
@@ -39,7 +38,7 @@ class LinkDialogState extends State<LinkDialog> {
         maxLines: null,
         style: widget.dialogTheme?.inputTextStyle,
         decoration: InputDecoration(
-            labelText: 'Paste a link'.i18n,
+            labelText: 'Paste a link',
             labelStyle: widget.dialogTheme?.labelTextStyle,
             floatingLabelStyle: widget.dialogTheme?.labelTextStyle),
         autofocus: true,
@@ -53,7 +52,7 @@ class LinkDialogState extends State<LinkDialog> {
               ? _applyLink
               : null,
           child: Text(
-            'Ok'.i18n,
+            'Ok',
             style: widget.dialogTheme?.labelTextStyle,
           ),
         ),
@@ -88,7 +87,7 @@ class ImageVideoUtils {
                   Icons.collections,
                   color: Colors.orangeAccent,
                 ),
-                label: Text('Gallery'.i18n),
+                label: Text('Gallery'),
                 onPressed: () => Navigator.pop(ctx, MediaPickSetting.Gallery),
               ),
               TextButton.icon(
@@ -96,7 +95,7 @@ class ImageVideoUtils {
                   Icons.link,
                   color: Colors.cyanAccent,
                 ),
-                label: Text('Link'.i18n),
+                label: Text('Link'),
                 onPressed: () => Navigator.pop(ctx, MediaPickSetting.Link),
               )
             ],

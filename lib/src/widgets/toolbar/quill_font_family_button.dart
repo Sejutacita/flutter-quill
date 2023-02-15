@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../models/documents/attribute.dart';
 import '../../models/documents/style.dart';
 import '../../models/themes/quill_icon_theme.dart';
-import '../../translations/toolbar.i18n.dart';
 import '../controller.dart';
 
 class QuillFontFamilyButton extends StatefulWidget {
@@ -46,7 +45,7 @@ class _QuillFontFamilyButtonState extends State<QuillFontFamilyButton> {
   @override
   void initState() {
     super.initState();
-    _currentValue = _defaultDisplayText = 'Font'.i18n;
+    _currentValue = _defaultDisplayText = 'Font';
     widget.controller.addListener(_didChangeEditingValue);
   }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
-import 'package:flutter_quill/translations.dart';
+
 import 'package:image_picker/image_picker.dart';
 
 import '../embed_types.dart';
@@ -87,7 +87,7 @@ class CameraButton extends StatelessWidget {
                           Icons.camera,
                           color: Colors.orangeAccent,
                         ),
-                        label: Text('Camera'.i18n),
+                        label: Text('Camera'),
                         onPressed: () =>
                             Navigator.pop(ctx, MediaPickSetting.Camera),
                       ),
@@ -96,7 +96,7 @@ class CameraButton extends StatelessWidget {
                           Icons.video_call,
                           color: Colors.cyanAccent,
                         ),
-                        label: Text('Video'.i18n),
+                        label: Text('Video'),
                         onPressed: () =>
                             Navigator.pop(ctx, MediaPickSetting.Video),
                       )
