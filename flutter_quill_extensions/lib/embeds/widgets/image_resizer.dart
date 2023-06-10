@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_quill/translations.dart';
 
 class ImageResizer extends StatefulWidget {
   const ImageResizer(
@@ -76,7 +75,7 @@ class _ImageResizerState extends State<ImageResizer> {
             value: value,
             max: max,
             divisions: 1000,
-            label: label.i18n,
+            label: label,
             onChanged: (val) {
               setState(() {
                 onChanged(val);

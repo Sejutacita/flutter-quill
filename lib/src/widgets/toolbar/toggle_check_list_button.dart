@@ -19,9 +19,27 @@ class ToggleCheckListButton extends StatefulWidget {
     this.afterButtonPressed,
     this.tooltip,
     Key? key,
-  }) : super(key: key);
+  })  : iconAsset = null,
+        super(key: key);
 
-  final IconData icon;
+  const ToggleCheckListButton.custom({
+    required this.iconAsset,
+    required this.controller,
+    required this.attribute,
+    this.iconSize = kDefaultIconSize,
+    this.fillColor,
+    this.childBuilder = defaultToggleStyleButtonBuilder,
+    this.iconTheme,
+    this.afterButtonPressed,
+    this.tooltip,
+    Key? key,
+  })  : icon = null,
+        super(key: key);
+
+  final IconData? icon;
+
+  final String? iconAsset;
+
   final double iconSize;
 
   final Color? fillColor;
@@ -100,6 +118,7 @@ class _ToggleCheckListButtonState extends State<ToggleCheckListButton> {
         context,
         Attribute.unchecked,
         widget.icon,
+        widget.iconAsset,
         widget.fillColor,
         _isToggled,
         _toggleAttribute,

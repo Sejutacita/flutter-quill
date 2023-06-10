@@ -388,7 +388,7 @@ QuillEditor(locale: Locale('fr'), ...)
 
 #### 贡献翻译
 
-翻译文件位于 [toolbar.i18n.dart](lib/src/translations/toolbar.i18n.dart)
+翻译文件位于 [toolbar.dart](lib/src/translations/toolbar.dart)
 
 随意贡献你自己的翻译，只需复制英文翻译映射并将值替换为你的翻译即可
 

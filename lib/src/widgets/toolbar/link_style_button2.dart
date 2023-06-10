@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
 import '../../../extensions.dart';
-import '../../../translations.dart';
 import '../../models/documents/attribute.dart';
 import '../../models/themes/quill_dialog_theme.dart';
 import '../../models/themes/quill_icon_theme.dart';
@@ -262,7 +261,7 @@ class _LinkStyleDialogState extends State<LinkStyleDialog> {
 
     final children = _isEditMode
         ? [
-            Text(widget.editLinkLabel ?? 'Visit link'.i18n),
+            Text(widget.editLinkLabel ?? 'Visit link'),
             UtilityWidgets.maybeWidget(
               enabled: !isWrappable,
               wrapper: (child) => Expanded(
@@ -303,19 +302,19 @@ class _LinkStyleDialogState extends State<LinkStyleDialog> {
                 });
               },
               style: buttonStyle,
-              child: Text('Edit'.i18n),
+              child: Text('Edit'),
             ),
             Padding(
               padding: EdgeInsets.only(left: widget.childrenSpacing),
               child: ElevatedButton(
                 onPressed: _removeLink,
                 style: buttonStyle,
-                child: Text('Remove'.i18n),
+                child: Text('Remove'),
               ),
             ),
           ]
         : [
-            Text(widget.addLinkLabel ?? 'Enter link'.i18n),
+            Text(widget.addLinkLabel ?? 'Enter link'),
             UtilityWidgets.maybeWidget(
               enabled: !isWrappable,
               wrapper: (child) => Expanded(
@@ -342,7 +341,7 @@ class _LinkStyleDialogState extends State<LinkStyleDialog> {
             ElevatedButton(
               onPressed: _canPress() ? _applyLink : null,
               style: buttonStyle,
-              child: Text('Apply'.i18n),
+              child: Text('Apply'),
             ),
           ];
 

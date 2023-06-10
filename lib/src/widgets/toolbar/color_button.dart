@@ -4,7 +4,6 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import '../../models/documents/attribute.dart';
 import '../../models/documents/style.dart';
 import '../../models/themes/quill_icon_theme.dart';
-import '../../translations/toolbar.i18n.dart';
 import '../../utils/color.dart';
 import '../controller.dart';
 import '../toolbar.dart';
@@ -161,13 +160,13 @@ class _ColorButtonState extends State<ColorButton> {
       context: context,
       builder: (context) => StatefulBuilder(builder: (context, dlgSetState) {
         return AlertDialog(
-            title: Text('Select Color'.i18n),
+            title: Text('Select Color'),
             actions: [
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text('OK'.i18n)),
+                  child: Text('OK')),
             ],
             backgroundColor: Theme.of(context).canvasColor,
             content: SingleChildScrollView(
@@ -182,14 +181,14 @@ class _ColorButtonState extends State<ColorButton> {
                               pickerType = 'material';
                             });
                           },
-                          child: Text('Material'.i18n)),
+                          child: Text('Material')),
                       TextButton(
                           onPressed: () {
                             dlgSetState(() {
                               pickerType = 'color';
                             });
                           },
-                          child: Text('Color'.i18n)),
+                          child: Text('Color')),
                     ],
                   ),
                   Column(children: [
@@ -228,7 +227,7 @@ class _ColorButtonState extends State<ColorButton> {
                               colorBoxSetState(() {});
                             },
                             decoration: InputDecoration(
-                              labelText: 'Hex'.i18n,
+                              labelText: 'Hex',
                               border: const OutlineInputBorder(),
                             ),
                           ),

@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/extensions.dart';
 import 'package:flutter_quill/flutter_quill.dart' hide Text;
-import 'package:flutter_quill/translations.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../embed_types.dart';
@@ -236,7 +235,7 @@ class _MediaLinkDialogState extends State<MediaLinkDialog> {
     final isWrappable = widget.dialogTheme?.isWrappable ?? false;
 
     final children = [
-      Text(widget.labelText ?? 'Enter media'.i18n),
+      Text(widget.labelText ?? 'Enter media'),
       UtilityWidgets.maybeWidget(
         enabled: !isWrappable,
         wrapper: (child) => Expanded(
@@ -264,7 +263,7 @@ class _MediaLinkDialogState extends State<MediaLinkDialog> {
       ElevatedButton(
         onPressed: _canPress() ? _submitLink : null,
         style: buttonStyle,
-        child: Text(widget.buttonText ?? 'Ok'.i18n),
+        child: Text(widget.buttonText ?? 'Ok'),
       ),
     ];
 
@@ -364,7 +363,7 @@ class MediaSourceSelectorDialog extends StatelessWidget {
               Expanded(
                 child: TextButtonWithIcon(
                   icon: Icons.collections,
-                  label: galleryButtonText ?? 'Gallery'.i18n,
+                  label: galleryButtonText ?? 'Gallery',
                   onPressed: () =>
                       Navigator.pop(context, MediaPickSetting.Gallery),
                 ),
@@ -373,7 +372,7 @@ class MediaSourceSelectorDialog extends StatelessWidget {
               Expanded(
                 child: TextButtonWithIcon(
                   icon: Icons.link,
-                  label: linkButtonText ?? 'Link'.i18n,
+                  label: linkButtonText ?? 'Link',
                   onPressed: () =>
                       Navigator.pop(context, MediaPickSetting.Link),
                 ),
