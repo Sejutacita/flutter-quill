@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../models/documents/attribute.dart';
 import '../../models/documents/style.dart';
 import '../../models/themes/quill_icon_theme.dart';
-import '../../translations/toolbar.i18n.dart';
 import '../../utils/widgets.dart';
 import '../controller.dart';
 
@@ -73,7 +72,7 @@ class _QuillFontFamilyButtonState extends State<QuillFontFamilyButton> {
   @override
   void initState() {
     super.initState();
-    _currentValue = _defaultDisplayText = widget.initialValue ?? 'Font'.i18n;
+    _currentValue = _defaultDisplayText = widget.initialValue ?? 'Font';
     widget.controller.addListener(_didChangeEditingValue);
   }
 
@@ -126,7 +125,7 @@ class _QuillFontFamilyButtonState extends State<QuillFontFamilyButton> {
           if (widget.overrideTooltipByFontFamily) {
             effectiveTooltip = effectiveTooltip.isNotEmpty
                 ? '$effectiveTooltip: $_currentValue'
-                : '${'Font'.i18n}: $_currentValue';
+                : '${'Font'}: $_currentValue';
           }
           return Tooltip(message: effectiveTooltip, child: child);
         },

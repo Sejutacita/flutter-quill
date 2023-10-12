@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../translations.dart';
 import '../../models/documents/document.dart';
 import '../../models/themes/quill_dialog_theme.dart';
 import '../controller.dart';
@@ -58,7 +57,7 @@ class _SearchDialogState extends State<SearchDialog> {
         child: Row(
           children: [
             Tooltip(
-              message: 'Case sensitivity and whole word search'.i18n,
+              message: 'Case sensitivity and whole word search',
               child: ToggleButtons(
                 onPressed: (index) {
                   if (index == 0) {
@@ -108,19 +107,19 @@ class _SearchDialogState extends State<SearchDialog> {
             if (_offsets == null)
               IconButton(
                 icon: const Icon(Icons.search),
-                tooltip: 'Find text'.i18n,
+                tooltip: 'Find text',
                 onPressed: _findText,
               ),
             if (_offsets != null)
               IconButton(
                 icon: const Icon(Icons.keyboard_arrow_up),
-                tooltip: 'Move to previous occurrence'.i18n,
+                tooltip: 'Move to previous occurrence',
                 onPressed: (_offsets!.isNotEmpty) ? _moveToPrevious : null,
               ),
             if (_offsets != null)
               IconButton(
                 icon: const Icon(Icons.keyboard_arrow_down),
-                tooltip: 'Move to next occurrence'.i18n,
+                tooltip: 'Move to next occurrence',
                 onPressed: (_offsets!.isNotEmpty) ? _moveToNext : null,
               ),
           ],

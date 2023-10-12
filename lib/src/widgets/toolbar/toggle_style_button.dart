@@ -10,7 +10,8 @@ import '../toolbar.dart';
 typedef ToggleStyleButtonBuilder = Widget Function(
   BuildContext context,
   Attribute attribute,
-  IconData icon,
+  IconData? icon,
+  String? iconAsset,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -31,11 +32,27 @@ class ToggleStyleButton extends StatefulWidget {
     this.afterButtonPressed,
     this.tooltip,
     Key? key,
-  }) : super(key: key);
+  })  : iconAsset = null,
+        super(key: key);
+
+  const ToggleStyleButton.custom({
+    required this.attribute,
+    required this.iconAsset,
+    required this.controller,
+    this.iconSize = kDefaultIconSize,
+    this.fillColor,
+    this.childBuilder = defaultToggleStyleButtonBuilder,
+    this.iconTheme,
+    this.afterButtonPressed,
+    this.tooltip,
+    Key? key,
+  })  : icon = null,
+        super(key: key);
 
   final Attribute attribute;
 
-  final IconData icon;
+  final IconData? icon;
+  final String? iconAsset;
   final double iconSize;
 
   final Color? fillColor;
@@ -74,6 +91,7 @@ class _ToggleStyleButtonState extends State<ToggleStyleButton> {
         context,
         widget.attribute,
         widget.icon,
+        widget.iconAsset,
         widget.fillColor,
         _isToggled,
         _toggleAttribute,
@@ -126,7 +144,8 @@ class _ToggleStyleButtonState extends State<ToggleStyleButton> {
 Widget defaultToggleStyleButtonBuilder(
   BuildContext context,
   Attribute attribute,
-  IconData icon,
+  IconData? icon,
+  String? iconAsset,
   Color? fillColor,
   bool? isToggled,
   VoidCallback? onPressed,
@@ -147,15 +166,21 @@ Widget defaultToggleStyleButtonBuilder(
       ? isToggled == true
           ? (iconTheme?.iconSelectedFillColor ??
               Theme.of(context).primaryColor) //Selected icon fill color
-          : (iconTheme?.iconUnselectedFillColor ??
-              theme.canvasColor) //Unselected icon fill color :
-      : (iconTheme?.disabledIconFillColor ??
-          (fillColor ?? theme.canvasColor)); //Disabled icon fill color
+          : Colors.transparent //Unselected icon fill color :
+      : Colors.transparent; //Disabled icon fill color
   return QuillIconButton(
     highlightElevation: 0,
     hoverElevation: 0,
     size: iconSize * kIconButtonFactor,
-    icon: Icon(icon, size: iconSize, color: iconColor),
+    icon: iconAsset != null
+        ? Image.asset(
+            iconAsset,
+            width: 14,
+            color: iconColor,
+            // TODO(Anyone): add packages as input
+            package: 'resources',
+          )
+        : Icon(icon, size: iconSize, color: iconColor),
     fillColor: fill,
     onPressed: onPressed,
     afterPressed: afterPressed,
