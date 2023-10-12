@@ -14,13 +14,13 @@ dependencies:
   characters: ^1.2.1
   charcode: ^1.3.1
   collection: ^1.17.0
-  device_info_plus: ^8.1.0
+  device_info_plus: ^9.0.3
   diff_match_patch: ^0.4.1
   flutter:
     sdk: flutter
   flutter_colorpicker: ^1.0.3
   flutter_keyboard_visibility: ^5.4.0
-  markdown: ^7.1.0
+  markdown: ^7.1.1
   pasteboard: ^0.2.0
   pedantic: ^1.11.1
   platform: ^3.1.0
